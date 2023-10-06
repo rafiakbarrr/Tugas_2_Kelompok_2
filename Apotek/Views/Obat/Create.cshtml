@@ -1,0 +1,54 @@
+﻿@model Apotek.Models.Obat
+
+@{
+    ViewData["Title"] = "Tambah Obat";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Tambah Obat</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-controller="Obat" asp-action="Create">
+                            <div class="form-group">
+                                <label asp-for="idObat" class="control-label">ID Obat</label>
+                                <input asp-for="idObat" class="form-control" name="idObat" />
+                                <span asp-validation-for="idObat" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="idJenis" class="control-label">ID Jenis</label>
+                                <input asp-for="idJenis" class="form-control" name="idJenis" />
+                                <span asp-validation-for="idJenis" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="namaObat" class="control-label">Nama Obat</label>
+                                <input asp-for="namaObat" class="form-control" name="namaObat" />
+                                <span asp-validation-for="namaObat" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="tanggalKadaluarsaObat" class="control-label">Tanggal Kadaluarsa</label>
+                                <input asp-for="tanggalKadaluarsaObat" type="date" class="form-control" name="tanggalKadaluarsaObat" />
+                                <span asp-validation-for="tanggalKadaluarsaObat" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="hargaObat" class="control-label">Harga</label>
+                                <input asp-for="hargaObat" type="number" class="form-control" name="hargaObat" />
+                                <span asp-validation-for="hargaObat" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

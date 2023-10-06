@@ -1,0 +1,34 @@
+﻿@model Apotek.Models.Jenis
+@{
+    ViewData["Title"] = "Edit Jenis";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Edit Jenis</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-controller="Jenis" asp-action="Edit">
+                            <input type="hidden" asp-for="idJenis" />
+                            <div class="form-group">
+                                <label asp-for="namaJenis" class="control-label">Nama Jenis</label>
+                                <input asp-for="namaJenis" class="form-control" name="namaJenis" />
+                                <span asp-validation-for="namaJenis" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

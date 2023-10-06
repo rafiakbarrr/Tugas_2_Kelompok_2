@@ -1,0 +1,70 @@
+﻿@model Apotek.Models.Pembelian
+
+@{
+    ViewData["Title"] = "Pembelian Obat";
+}
+<head>
+    <script>
+        // Mendapatkan elemen input berdasarkan ID
+        var tanggalInput = document.getElementById("tanggalInput");
+
+        // Membuat objek tanggal saat ini
+        var tanggalHariIni = new Date();
+
+        // Mendapatkan tanggal, bulan, dan tahun dari objek tanggal saat ini
+        var tanggal = tanggalHariIni.getDate();
+        var bulan = tanggalHariIni.getMonth() + 1; // Perlu ditambah 1 karena indeks bulan dimulai dari 0
+        var tahun = tanggalHariIni.getFullYear();
+
+        // Membuat format tanggal dalam bentuk "dd/MM/yyyy"
+        var tanggalFormat = (tanggal < 10 ? '0' : '') + tanggal + '/' + (bulan < 10 ? '0' : '') + bulan + '/' + tahun;
+
+        // Mengisi nilai input dengan tanggal saat ini
+        tanggalInput.value = tanggalFormat;
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Pembelian Obat</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" asp-controller="Pembelian" asp-action="Create">
+                                <div class="form-group">
+                                    <label asp-for="idTransaksi" class="control-label">ID Transaksi</label>
+                                    <input asp-for="idTransaksi" class="form-control" name="idTransaksi" />
+                                    <span asp-validation-for="idTransaksi" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="tanggalTransaksi" class="control-label">Tanggal Transaksi</label>
+                                    <input asp-for="tanggalTransaksi" type="date" id="tanggalInput" class="form-control" name="tanggalTransaksi"  />
+                                    <span asp-validation-for="tanggalTransaksi" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="idObat" class="control-label">ID Obat</label>
+                                    <input asp-for="idObat" class="form-control" name="idObat" />
+                                    <span asp-validation-for="idObat" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="jumlah" class="control-label">Jumlah</label>
+                                    <input asp-for="jumlah" class="form-control" name="jumlah" />
+                                    <span asp-validation-for="jumlah" class="text-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
